@@ -4,6 +4,7 @@ import './Login.css';
 const Login = () => {
     return (
         <div className='login-main-container'>
+        <h1 className='login-title'>Login to Chuck-in app now!</h1>
             <div className="container h-100">
                 <div className="d-flex justify-content-center h-100">
                     <div className="user_card">
