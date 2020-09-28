@@ -1,9 +1,10 @@
-body,
-html {
-    margin: 40px 0 0 0;
-    padding: 0;
+.login-main-container {
+    margin: 120px 0 0 0;
     height: 100%;
-    background: #60a3bc !important;
+    /* background: #60a3bc !important; */
+}
+.container h-100 {
+    margin: 40px 0 0 0;
 }
 .user_card {
     height: 400px;
@@ -27,7 +28,8 @@ html {
     width: 170px;
     top: -75px;
     border-radius: 50%;
-    background: #60a3bc;
+    /* border: 1px solid red; */
+    background: white;
     padding: 10px;
     text-align: center;
 }
