@@ -4,7 +4,7 @@ import 'react-day-picker/lib/style.css';
 import './Daypicker.css';
 // import DayPickerInput from 'react-day-picker/DayPickerInput';
 // import MomentLocaleUtils, { formatDate, parseDate } from 'react-day-picker/moment';
-// import 'moment/locale/it';
+import 'moment/locale/it';
 
 
 export default class BasicConcepts extends React.Component {
@@ -18,8 +18,24 @@ export default class BasicConcepts extends React.Component {
 
     handleDayClick(day) {
         this.setState({ selectedDay: day });
-        console.log(this.state.selectedDay)
+        // console.log(this.state.selectedDay)
+
+        let date = new Date(day);
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let dt = date.getDate();
+
+        if (dt < 10) {
+            dt = '0' + dt;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
+        let correctDateFormat = dt + '/' + month + '/' + year
+        console.log(correctDateFormat)
+
     }
+
 
     render() {
         return (
@@ -44,17 +60,29 @@ export default class BasicConcepts extends React.Component {
 //         console.log(selectedDate.selectedDay)
 //     }
 //     const handleSelectedDay = (day) => {
-//         console.log(day)
+//         let date = new Date(day);
+//         let year = date.getFullYear();
+//         let month = date.getMonth() + 1;
+//         let dt = date.getDate();
+
+//         if (dt < 10) {
+//             dt = '0' + dt;
+//         }
+//         if (month < 10) {
+//             month = '0' + month;
+//         }
+//         let correctDateFormat = dt + '/' + month + '/' + year
+//         console.log(correctDateFormat)
 //     }
 
 //     return (
 //         <div className='daypicker-main'>
-//            <p>Please type a day:</p>
+//             <p>Please type a day:</p>
 //             <DayPickerInput
-//             formatDate={formatDate}
-//             parseDate={parseDate}
-//             placeholder={`${formatDate(new Date())}`}
-//             onDayChange={handleSelectedDay} />
+//                 formatDate={formatDate}
+//                 parseDate={parseDate}
+//                 placeholder={`${formatDate(new Date())}`}
+//                 onDayChange={handleSelectedDay} />
 //         </div>
 //     )
 // }

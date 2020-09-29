@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import Navbar from './Components/Shared/Navbar';
 import Login from './Components/Pages/Login';
@@ -18,14 +18,25 @@ function App() {
   // }
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Navbar visibility={visibility}/>
-        <Route exact path='/' component={Login}  />
-        <Route exact path='/home' component={Booking} />
-        <Route exact path='/bookings' component={Bookings} />
+    <Router>
+      <div className='App'>
+        <Switch>
+          <Navbar visibility={visibility} />
+          <Route exact path='/' component={Login} />
+          <Route exact path='/home' component={Booking} />
+          <Route exact path='/bookings' component={Bookings} />
+        </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
+
+    // <BrowserRouter>
+    //   <div className="App">
+    //     <Navbar visibility={visibility}/>
+    //     <Route exact path='/' component={Login}  />
+    //     <Route exact path='/home' component={Booking} />
+    //     <Route exact path='/bookings' component={Bookings} />
+    //   </div>
+    // </BrowserRouter>
   );
 }
 

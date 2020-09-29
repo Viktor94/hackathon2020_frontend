@@ -1,42 +1,45 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
-
     const history = useHistory();
-
     const loginToApp = () => {
         history.push('/home');
     }
-
-    const [ userData, setUserData] = useState({ username: '', password: '' });
-
+    const [userData, setUserData] = useState({ password: '', userName: '' });
     const handleusername = (e) => {
-        setUserData({ username: e.target.value, password: userData.password });
-        console.log(userData.username)
+        setUserData({ password: userData.password, userName: e.target.value });
     }
-
     const handlePassword = (e) => {
-        setUserData({ username: userData.username, password: e.target.value });
-        console.log(userData.password)
+        setUserData({ password: e.target.value, userName: userData.userName });
     }
 
     async function loginUser() {
         try {
-            const url = 'https://hackathon-back.herokuapp.com/';
-            const fetchResponse = await fetch(`${url}/login`, {
+            // const url = 'https://hackathon-back.herokuapp.com'; + ${url}
+            const fetchResponse = await fetch(`/users/login`, {
                 method: 'POST',
                 headers: { 'Content-type': 'application/json' },
                 body: JSON.stringify(userData)
             });
             const data = await fetchResponse.json();
-            setUserData({ username: '', password: '' })
+            if (userData.userName === '') {
+                alert('Please provide username');
+                return false;
+            }
+            if (userData.password === '') {
+                alert('Please provide password');
+                return false;
+            }
+            setUserData({ password: '', userName: '' })
+            console.log(userData);
+            console.log(data);
             console.log('Login success');
             loginToApp();
             return data;
-        } 
-        catch(error) {
+        }
+        catch (error) {
             return error;
         }
     }
@@ -44,7 +47,7 @@ const Login = () => {
     return (
         <div className='login-main-container'>
             <div className='dummy-div'></div>
-        <h1 className='login-title'>Login to Chuck-in app now!</h1>
+            <h1 className='login-title'>Login to Chuck-in app now!</h1>
             <div className="container h-100">
                 <div className="d-flex justify-content-center h-100">
                     <div className="user_card">
@@ -59,30 +62,30 @@ const Login = () => {
                                     <div className="input-group-append">
                                         <span className="input-group-text"><i className="fas fa-user"></i></span>
                                     </div>
-                                    <input 
-                                    type="text" 
-                                    className="form-control input_user" 
-                                    placeholder="username"
-                                    value={userData.username}
-                                    onChange={handleusername}></input>
+                                    <input
+                                        type="text"
+                                        className="form-control input_user"
+                                        placeholder="username"
+                                        value={userData.userName}
+                                        onChange={handleusername}></input>
                                 </div>
                                 <div className="input-group mb-2">
                                     <div className="input-group-append">
                                         <span className="input-group-text"><i className="fas fa-key"></i></span>
                                     </div>
-                                    <input 
-                                    type="password" 
-                                    className="form-control input_pass" 
-                                    placeholder="password"
-                                    value={userData.password}
-                                    onChange={handlePassword}></input>
+                                    <input
+                                        type="password"
+                                        className="form-control input_pass"
+                                        placeholder="password"
+                                        value={userData.password}
+                                        onChange={handlePassword}></input>
                                 </div>
                                 <div className="d-flex justify-content-center mt-3 login_container">
-                                    <button 
-                                    type="button" 
-                                    name="button" 
-                                    className="btn login_btn"
-                                    onClick={loginToApp}>Login</button>
+                                    <button
+                                        type="button"
+                                        name="button"
+                                        className="btn login_btn"
+                                        onClick={loginUser}>Login</button>
                                 </div>
                             </form>
                         </div>
