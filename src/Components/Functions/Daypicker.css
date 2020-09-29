@@ -1,0 +1,29 @@
+/* .daypicker-main {
+    width: fit-content;
+    background-color: #eed384;
+} */
+
+.DayPicker-Weekday {
+    color:  rgb(102, 95, 95);
+    font-size: larger;
+    font-weight: bolder;
+    text-shadow: 0.5px 0.5px rgb(102, 95, 95);    
+}
+
+.DayPicker-Day {
+    color: #494740;
+    /* font-weight: 700; */
+    /* text-shadow: 0.5px 0.5px #ccc6b3; */
+}
+
+.DayPicker-Caption {
+    color: #494740;
+}
+
+h4 {
+    color: #c0392b
+}
+
+.DayPicker-Day--today {
+    background-color: #c03a2b80;
+}

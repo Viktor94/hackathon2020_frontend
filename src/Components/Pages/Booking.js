@@ -1,10 +1,11 @@
 import React from 'react';
 import './Booking.css';
+import Daypicker from '../Functions/Daypicker';
 
 const Booking = () => {
     return (
         <div>
-            <h1>Booking Page Component</h1>
+            <Daypicker />
         </div>
     )
 }
