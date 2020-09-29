@@ -53,6 +53,10 @@
     box-shadow: none !important;
     outline: 0px !important;
 }
+.login_btn:active {
+    transform: translateY(2px);
+    transition-timing-function: ease;
+}
 .login_container {
     padding: 0 2rem;
 }

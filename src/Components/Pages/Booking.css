@@ -1,0 +1,37 @@
+.book-date-button {
+    border: 1px solid brown;
+    background:  #c0392b;
+    color: #2e2d2a;
+    border-radius: 5px;
+    height: 40px;
+    width: 130px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+.book-date-button:hover { 
+    background:  #df4b3b;
+    outline: 0 !important
+}
+.book-date-button:active { 
+    background:  #c0392b;
+    outline: 0 !important;
+    transform: translateY(2px);
+    transition-timing-function: ease;
+}
+.book-date-button:focus { 
+    background:  #c0392b;
+    outline: 0 !important
+}
+.usage-bar {
+    margin: 10px 0 10px 0;
+    color: #c0392b;
+}
+.booking-container {
+    padding: 20px 10px 20px 10px;
+    background-color: #eed384;
+    width: fit-content;
+    border-radius: 5px;
+    float: center;
+    margin: auto;
+    margin-top: 30px;
+}

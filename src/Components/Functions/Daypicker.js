@@ -4,7 +4,7 @@ import 'react-day-picker/lib/style.css';
 import './Daypicker.css';
 
 export default function Daypicker() {
-    
+
     const [selectedDate, setSelectedDate] = useState('')
     
     const handleSelectedDay = (day) => {
@@ -32,7 +32,7 @@ export default function Daypicker() {
             ) : (
                     <h4>Please select a day.</h4>
                 )}
-            <DayPicker onDayClick={handleSelectedDay} />
+            <DayPicker onDayClick={handleSelectedDay} />       
         </div>
     )
 }

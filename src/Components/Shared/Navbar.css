@@ -27,6 +27,10 @@ nav .navbar-nav li button:hover {
 
 .nav-link:hover { outline: 0 !important }
 
-.nav-link:active { outline: 0 !important }
+.nav-link:active { 
+    outline: 0 !important;
+    transform: translateY(2px);
+    transition-timing-function: ease;
+}
 
 .nav-link:focus { outline: 0 !important }
