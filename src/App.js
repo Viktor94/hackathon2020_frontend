@@ -8,36 +8,35 @@ import Bookings from './Components/Pages/Bookings';
 
 function App() {
 
-  // let visibility = {visibility: 'hidden'};
-  let visibility = null;
-
-  // const [ visibility, setVisibility ] = useState({ visibility: 'hidden' })
-  // setVisibility({ visibility: null })
-  // const showNavbar = () => {
-  //   setVisibility({ visibility: null })
-  // }
-
   return (
     <Router>
       <div className='App'>
         <Switch>
-          <Navbar visibility={visibility} />
-          <Route exact path='/' component={Login} />
-          <Route exact path='/home' component={Booking} />
-          <Route exact path='/bookings' component={Bookings} />
+          <Route exact path='/'>
+            <Login />
+          </Route>
+          <Route exact path='/home'>
+            <Navbar />
+            <Booking />
+          </Route>
+          <Route exact path='/bookings'>
+            <Navbar />
+            <Bookings />
+          </Route>
         </Switch>
       </div>
     </Router>
-
-    // <BrowserRouter>
-    //   <div className="App">
-    //     <Navbar visibility={visibility}/>
-    //     <Route exact path='/' component={Login}  />
-    //     <Route exact path='/home' component={Booking} />
-    //     <Route exact path='/bookings' component={Bookings} />
-    //   </div>
-    // </BrowserRouter>
   );
 }
 
 export default App;
+
+
+// <BrowserRouter>
+//   <div className="App">
+//     <Navbar visibility={visibility}/>
+//     <Route exact path='/' component={Login}  />
+//     <Route exact path='/home' component={Booking} />
+//     <Route exact path='/bookings' component={Bookings} />
+//   </div>
+// </BrowserRouter>

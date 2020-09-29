@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Login.css';
 
@@ -15,6 +15,8 @@ const Login = () => {
         setUserData({ password: e.target.value, userName: userData.userName });
     }
 
+    let responseData = '';
+
     async function loginUser() {
         try {
             // const url = 'https://hackathon-back.herokuapp.com'; + ${url}
@@ -24,18 +26,20 @@ const Login = () => {
                 body: JSON.stringify(userData)
             });
             const data = await fetchResponse.json();
-            if (userData.userName === '') {
-                alert('Please provide username');
-                return false;
-            }
-            if (userData.password === '') {
-                alert('Please provide password');
-                return false;
-            }
+            // if (userData.userName === '') {
+            //     alert('Please provide username');
+            //     return false;
+            // }
+            // if (userData.password === '') {
+            //     alert('Please provide password');
+            //     return false;
+            // }
             setUserData({ password: '', userName: '' })
+            responseData = data;
             console.log(userData);
             console.log(data);
-            console.log('Login success');
+            console.log(responseData);
+
             loginToApp();
             return data;
         }
@@ -97,3 +101,22 @@ const Login = () => {
 }
 
 export default Login
+
+
+// const loginUser = () => {
+//     fetch('/users/login', {
+//         method: 'POST',
+//         headers: { 'Content-type': 'application/json' },
+//         body: JSON.stringify(userData)
+//     }).then(response => {
+//         return response.json();
+//     }).then(response => {
+//         loginToApp()
+//         setUserData({ password: '', userName: '' })
+//         // setLoggedInUserData(response)
+//         responseData = response;
+//         console.log(userData)
+//         console.log(response)
+//         console.log(responseData)
+//     }).then(() => console.log(responseData))
+// }

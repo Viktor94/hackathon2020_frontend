@@ -1,16 +1,6 @@
-/* .dummy-div {
-    position:absolute;
-    background-color: white;
-    width: 100%;
-    height: 80px;
-    padding: 0;
-    margin: 0;
-    top: -10px;
-} */
-
 .login-main-container {
     height: 100%;
-    padding-bottom: 50px;
+    margin-top: 50px;
     /* background: #60a3bc !important; */
 }
 .login-title {
