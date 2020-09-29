@@ -1,17 +1,28 @@
+/* .dummy-div {
+    position:absolute;
+    background-color: white;
+    width: 100%;
+    height: 80px;
+    padding: 0;
+    margin: 0;
+    top: -10px;
+} */
+
 .login-main-container {
-    margin: 40px 0 0 0;
     height: 100%;
+    padding-bottom: 50px;
     /* background: #60a3bc !important; */
 }
 .login-title {
-    margin-bottom: 90px;
+    margin-bottom: 110px;
 }
 .user_card {
     height: 400px;
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #f39c12;
+    /* background: #bccf5d; */
+    background: #eed384;
     position: relative;
     display: flex;
     justify-content: center;

@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRouteMatch } from 'react';
+import { useHistory } from 'react-router';
 import './Login.css';
 
 const Login = () => {
+
+    const history = useHistory();
+
+    const loginToApp = () => {
+        history.push('/home');
+    }
 
     const [ userData, setUserData] = useState({ username: '', password: '' });
 
@@ -26,14 +33,17 @@ const Login = () => {
             const data = await fetchResponse.json();
             setUserData({ username: '', password: '' })
             console.log('Login success');
+            loginToApp();
             return data;
-        } catch(error) {
+        } 
+        catch(error) {
             return error;
         }
     }
 
     return (
         <div className='login-main-container'>
+            <div className='dummy-div'></div>
         <h1 className='login-title'>Login to Chuck-in app now!</h1>
             <div className="container h-100">
                 <div className="d-flex justify-content-center h-100">
@@ -72,7 +82,7 @@ const Login = () => {
                                     type="button" 
                                     name="button" 
                                     className="btn login_btn"
-                                    onClick={loginUser}>Login</button>
+                                    onClick={loginToApp}>Login</button>
                                 </div>
                             </form>
                         </div>

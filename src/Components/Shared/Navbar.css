@@ -1,0 +1,32 @@
+.navbar {
+    margin: 20px 10px 20px 10px;
+    background: rgba(255, 255, 255, 0.288);
+    border-radius: 10px;
+}
+
+nav .navbar-nav li button{
+    color: rgb(102, 95, 95) !important;
+    font-size: larger;
+    font-weight: 500;
+}
+
+nav .navbar-nav li button:hover {
+    border-bottom: 3px solid #cea015;
+    padding-bottom: 3px;
+}
+
+.navbar-toggler {
+    background-color: white;
+    opacity: 0.8;
+}
+
+.nav-link {
+    border: none;
+    background: none;
+}
+
+.nav-link:hover { outline: 0 !important }
+
+.nav-link:active { outline: 0 !important }
+
+.nav-link:focus { outline: 0 !important }
