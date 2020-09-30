@@ -1,0 +1,16 @@
+.bookings-main{
+    margin: 40px 0 40px 0;
+    width: fit-content;
+    /* background-color: #eed384; */
+    margin: auto;
+}
+.bookings-title{
+    margin: 10px 0 30px 0;
+}
+.list-group{
+    width: 600px;
+    border-radius: 5px;
+}
+li.list-group-item{
+    background-color: #eed384;
+}
