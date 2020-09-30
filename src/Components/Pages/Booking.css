@@ -6,7 +6,7 @@
     height: 40px;
     width: 130px;
     font-weight: 600;
-    margin-top: 20px;
+    margin: 10px 10px 10px 10px;
 }
 .book-date-button:hover { 
     background:  #df4b3b;
@@ -35,14 +35,12 @@
     margin: auto;
     margin-top: 30px;
 }
-
 .DayPicker-Weekday {
     color:  rgb(102, 95, 95);
     font-size: larger;
     font-weight: bolder;
     text-shadow: 0.5px 0.5px rgb(102, 95, 95);    
 }
-
 .DayPicker-Day {
     color: #494740;
     /* font-weight: 700; */
@@ -58,7 +56,9 @@
 h4 {
     color: #c0392b
 }
-
 .DayPicker-Day--today {
     background-color: #c03a2b80;
+}
+.office-books {
+    margin: 5px 0 5px 0;
 }

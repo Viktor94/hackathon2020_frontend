@@ -1,33 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import './Booking.css';
-import AuthService from '../../Services/user.service';
+// import AuthService from '../../Services/user.service';
 import OfficeService from '../../Services/office.service';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
 const Booking = () => {
-    const currentUser = AuthService.getCurrentUser();
+    // const currentUser = AuthService.getCurrentUser();
     const [selectedDate, setSelectedDate] = useState("");
-    const [usersInOffice, setUsersInOffice] = useState("");
+    const [bookedUsers, setBookedUsers] = useState([]);
 
     const handleSelectedDay = (day) => {
-        setSelectedDate({ selectedDay: day })
-        console.log(selectedDate.selectedDay)
+        setSelectedDate({ selectedDay: day });
+        console.log(selectedDate.selectedDay);
     }
 
-    const checkDate = (e) => {
-        e.preventDefault();
-        OfficeService.checkOfficeUse(selectedDate.selectedDay.toLocaleDateString())
+    let freeSpots = bookedUsers.numberOfFreeSpots || 0;
+    let totalSpots = 50 || bookedUsers.officeCapacity
+
+    const checkDate = async () => {
+        await OfficeService.checkOfficeUse(selectedDate.selectedDay.toLocaleDateString())
             .then((response) => {
-                console.log(response)
+                // console.log(response.usersInOffice)
+                setBookedUsers({ ...response })
+                // console.log(bookedUsers)
             }, (error) => {
                 return error
             })
     };
 
-    // useEffect(() => {
-    //     handleSelectedDay()
-    // }, [correctDateFormat])
+    const bookOffice = () => {
+        OfficeService.bookOfficeSpot(selectedDate.selectedDay.toLocaleDateString())
+            .then((response) => {
+                console.log('OfficeDay booked');
+                alert('Day booked')
+            }, (error) => {
+                return error
+            })
+    }
 
     return (
         <div className='booking-container'>
@@ -40,11 +50,14 @@ const Booking = () => {
                 <DayPicker onDayClick={handleSelectedDay} />
             </div>
             <div className='usage-bar'>
-                <h5>7/10 desks are booked for this date</h5>
+                <h5 className='office-books'>
+                    {freeSpots}/{totalSpots} desks are booked for this date
+                </h5>
             </div>
-            <button className='book-date-button' onClick={checkDate} >Book this date</button>
-            <p>{currentUser.token.substring(0, 10)}</p>
-            <p>{currentUser.userName}</p>
+            <button className='book-date-button' onClick={checkDate}>Check date</button>
+            <button className='book-date-button' onClick={bookOffice}>Book this date</button>
+            {/* <p>{currentUser.token.substring(0, 10)}</p> */}
+            {/* <p>{currentUser.userName}</p> */}
         </div>
     )
 }
