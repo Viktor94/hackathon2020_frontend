@@ -48,7 +48,9 @@
     /* font-weight: 700; */
     /* text-shadow: 0.5px 0.5px #ccc6b3; */
 }
-
+.DayPicker-Month {
+    width: 300px;
+}
 .DayPicker-Caption {
     color: #494740;
 }

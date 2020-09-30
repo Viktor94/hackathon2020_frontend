@@ -3,12 +3,14 @@ import AuthService from "./user.service";
 
 // const API_URL = "https://hackathon-back.herokuapp.com";
 const user = AuthService.getCurrentUser();
+const userTOk = user.token
 
-const checkOfficeUse = () => {
+const checkOfficeUse = (date) => {
     return axios
         .post("/office/check-date", {
             date,
-            headers: { "Authorization": user.token } 
+        }, {
+            headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) } 
         })
         .then((response) => {
             if (response.data.date) {
