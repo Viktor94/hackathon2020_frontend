@@ -1,24 +1,19 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import './Navbar.css';
-// import AuthService from '../../Services/user.service';
-// import LoggedInUserName from '../Pages/Login';
 
 const Navbar = ({ visibility }) => {
     const history = useHistory();
-    // const current = LoggedInUserName.userName
 
     function navigateToHome() {
         history.push('/home')
     }
-
     function navigateToMyBookings() {
         history.push('/bookings')
     }
-
     function logoutUser() {
-        // AuthService.logout()
         history.push('/')
+        localStorage.clear();
     }
 
     return (
