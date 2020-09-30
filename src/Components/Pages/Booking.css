@@ -31,7 +31,7 @@
     background-color: #eed384;
     width: fit-content;
     border-radius: 5px;
-    float: center;
+    /* float: center; */
     margin: auto;
     margin-top: 30px;
 }
@@ -61,4 +61,27 @@ h4 {
 }
 .office-books {
     margin: 5px 0 5px 0;
+}
+.booking-msg-p{
+    margin: 5px;
+    color: #2e2d2a;
+    font-weight: 700;
+}
+.booking-msg-p-span{
+    font-weight: 700;
+    padding: 5px;    
+}
+.booking-msg{
+    background-color:  #c0392b;
+    width: fit-content;
+    height: 48px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 3px;
+    border-radius: 5px;
+}
+.bi-hand-thumbs-up {
+    height: 30px;
+    width: 30px;
+    margin: 0 0 10px 5px;
 }
