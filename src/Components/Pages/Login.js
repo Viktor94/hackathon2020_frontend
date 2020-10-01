@@ -27,7 +27,6 @@ const Login = () => {
         e.preventDefault();
         AuthService.login(password, userName)
             .then((response) => {
-                console.log(response)
                 loginToApp()
             },
                 (error) => {

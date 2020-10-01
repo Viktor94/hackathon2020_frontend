@@ -14,7 +14,6 @@ const Canteen = () => {
                 headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
             }).then((response) => {
                 setCanteenStatus({ ...response });
-                // console.log(response.data.usersInCanteen[0].userName)
                 console.log(response)
                 return response
             });

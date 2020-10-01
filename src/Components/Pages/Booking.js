@@ -11,7 +11,6 @@ const Booking = () => {
 
     const handleSelectedDay = (day) => {
         setSelectedDate({ selectedDay: day });
-        console.log(selectedDate.selectedDay);
     }
 
     let freeSpots = bookedUsers.numberOfFreeSpots || 0;
@@ -20,9 +19,7 @@ const Booking = () => {
     const checkDate = async () => {
         await OfficeService.checkOfficeUse(selectedDate.selectedDay.toLocaleDateString())
             .then((response) => {
-                // console.log(response.usersInOffice)
                 setBookedUsers({ ...response })
-                // console.log(bookedUsers)
             }, (error) => {
                 return error
             })
