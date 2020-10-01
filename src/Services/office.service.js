@@ -1,16 +1,16 @@
 import axios from "axios";
-import AuthService from "./user.service";
 
 const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-back.herokuapp.com/";
 
-const user = AuthService.getCurrentUser();
+const userToken = JSON.parse(JSON.stringify(localStorage.token));
+
 
 const checkOfficeUse = (date) => {
     return axios
         .post(API_URL + "/office/check-date", {
             date,
         }, {
-            headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
+            headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
         })
         .then((response) => {
             console.log(response.data)
@@ -26,7 +26,7 @@ const bookOfficeSpot = (date) => {
         .post(API_URL + "/office/reserve", {
             date,
         }, {
-            headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
+            headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
         })
         .then((response) => {
             return response.data;
