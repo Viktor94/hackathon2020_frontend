@@ -1,10 +1,10 @@
 import axios from "axios";
 
-// const API_URL = "https://hackathon-back.herokuapp.com";
+const API_URL = "https://hackathon-back.herokuapp.com";
 
 const login = (password, userName) => {
   return axios
-    .post("/users/login", {
+    .post(`${API_URL}/users/login`, {
         password,
         userName,
     })
