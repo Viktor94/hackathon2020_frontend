@@ -1,7 +1,7 @@
 import axios from "axios";
 import AuthService from "./user.service";
 
-const API_URL = "https://hackathon-back.herokuapp.com";
+const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-best-frontend.herokuapp.com/";
 
 const user = AuthService.getCurrentUser();
 

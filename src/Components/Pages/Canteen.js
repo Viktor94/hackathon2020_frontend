@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Canteen.css';
 import axios from 'axios';
-const API_URL = "https://hackathon-back.herokuapp.com";
+const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-best-frontend.herokuapp.com/";
 
 const Canteen = () => {
 
