@@ -6,37 +6,9 @@ import axios from 'axios';
 const Bookings = () => {
 
     const userToken = JSON.parse(JSON.stringify(localStorage.token));
-
     const [usersBooking, setUsersBooking] = useState([])
 
-    // const getUsersBooking = async () => {
-    //     await OfficeService.getBookings()
-    //         .then(async (response) => {
-    //             setUsersBooking({ ...response })
-    //             console.log(usersBooking.data)
-    //             console.log(response.data.date)
-    //         })
-    // }
-
     useEffect(() => {
-        // let ignore = false;
-        // const fetchProduct = async () => {
-        //     const response = await axios(`/office/bookings`, {
-        //         headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
-        //     });
-        //     if (!ignore) setUsersBooking({ ...response });
-        // };
-        // fetchProduct();
-        // return (() => { ignore = true; });
-        /*const getBookings = async () => {
-            return await axios.get("/office/bookings",
-                {
-                    headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
-                }).then((response) => {
-                    setUsersBooking({ ...response });
-                    return response
-                });
-        }*/
         getBookings()
     }, [userToken]);
 
