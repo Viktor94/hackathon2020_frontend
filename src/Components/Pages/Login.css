@@ -5,6 +5,8 @@
 }
 .login-title {
     margin-bottom: 110px;
+    color: #c0392b;
+    text-shadow: 1px 0.5px #cf4a3b;
 }
 .user_card {
     height: 400px;

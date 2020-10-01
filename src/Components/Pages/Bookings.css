@@ -8,9 +8,49 @@
     margin: 10px 0 30px 0;
 }
 .list-group{
-    width: 600px;
+    width: 300px;
     border-radius: 5px;
 }
 li.list-group-item{
     background-color: #eed384;
+    display: flex;
+    flex-direction: row;
+}
+.delete-button {
+    /* border: 1px solid brown; */
+    border: none;
+    background:  transparent;
+    color: #2e2d2a;
+    border-radius: 5px;
+    height: 40px;
+    width: 50px;
+    font-weight: 600;
+    margin: 5px 0px 0 60px;
+}
+.item-rendered{
+    color: #494740;
+    font-weight: 700;
+    margin: 15px 20px 5px 20px;
+    align-items: center;
+}
+.delete-button:hover { 
+    border: none;
+    background:  transparent;
+    outline: 0 !important
+}
+.delete-button:active { 
+    border: none;
+    background:  transparent;
+    outline: 0 !important;
+    transform: translateY(2px);
+    transition-timing-function: ease;
+}
+.delete-button:focus { 
+    border: none;
+    background:  transparent;
+    outline: 0 !important;
+}
+.bi-trash{
+    height: 25px;
+    width: 25px;
 }

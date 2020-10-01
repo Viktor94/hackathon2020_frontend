@@ -33,10 +33,12 @@ const bookOfficeSpot = (date) => {
         })
 }
 
-const getBookings = () => {
-    return axios.get("/office/bookings",
+const getBookings = async () => {
+    return await axios.get("/office/bookings",
         {
             headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
+        }).then((response) => {
+            return response.data
         });
 };
 
