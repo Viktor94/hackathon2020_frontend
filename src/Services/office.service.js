@@ -4,7 +4,6 @@ const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-back.hero
 
 const userToken = JSON.parse(JSON.stringify(localStorage.token));
 
-
 const checkOfficeUse = (date) => {
     return axios
         .post(API_URL + "/office/check-date", {
