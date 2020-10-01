@@ -1,11 +1,7 @@
 import axios from "axios";
-import AuthService from "./user.service";
 import authHeader from "./auth.header";
 
 const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-back.herokuapp.com/";
-
-// const userToken = JSON.parse(JSON.stringify(localStorage.token));
-// const user = AuthService.getCurrentUser();
 
 const checkOfficeUse = (date) => {
     return axios

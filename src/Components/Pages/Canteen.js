@@ -21,9 +21,8 @@ const Canteen = () => {
 
     const checkinToCanteen = async () => {
         return axios
-            .post(API_URL + "/canteen/apply", {
-                
-            }, {
+            .post(API_URL + "/canteen/apply", { },
+            {
                 headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
             })
             .then((response) => {
@@ -32,13 +31,31 @@ const Canteen = () => {
             })
     }
 
+    const checkoutCanteen = () => {
+        return axios
+        .post(API_URL + "/canteen/finish", { },
+        {
+            headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
+        })
+        .then((response) => {
+            getCanteen()
+            return response;
+        });
+    };
+
     useEffect(() => {
         getCanteen()
     }, [userToken]);
 
     return (
         <div className='canteen-main'>
-            <h4 className='canteen-bar'>Users in Canteen</h4>
+            <h4>Users in Canteen</h4>
+                <button className='canteen-btn' onClick={getCanteen}>Check Canteen<i className='fas fa-hotdog'></i></button>
+                <button className='canteen-btn' onClick={checkinToCanteen}>Checkin<i className='fas fa-hotdog'></i></button>
+                <button className='canteen-btn' onClick={checkoutCanteen}>Checkout<i className='fas fa-hotdog'></i></button>
+                <h5 className='canteen-status'>                 
+                    Free space in office: {canteenStatus.data && canteenStatus.data.freeSpace}
+                </h5>
             <ul className="list-group canteen-list-main list-group-flush">
                 {canteenStatus.data && canteenStatus.data.usersInCanteen.map((item, i) => {
                     return <li className="list-group-item canteen-div" key={i}>
@@ -49,7 +66,7 @@ const Canteen = () => {
                         </div>
                     </li>
                 })}
-                <button className='canteen-btn' onClick={checkinToCanteen}>Checkin to Canteen <i className='fas fa-hotdog'></i></button>
+
             </ul>
         </div>
     )

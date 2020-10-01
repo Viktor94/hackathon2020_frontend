@@ -8,9 +8,6 @@ const Bookings = () => {
     const userToken = JSON.parse(JSON.stringify(localStorage.token));
     const [usersBooking, setUsersBooking] = useState([])
 
-    useEffect(() => {
-        getBookings()
-    }, [userToken]);
 
     const getBookings = async () => {
         return await axios.get(API_URL + "/office/bookings",
@@ -29,13 +26,15 @@ const Bookings = () => {
         }, {
             headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
         })
-        .then((response) => {
-            getBookings();
-            return response;
-        })
+            .then((response) => {
+                getBookings();
+                return response;
+            })
     }
 
-    console.log(usersBooking.data)
+    useEffect(() => {
+        getBookings()
+    }, []);
 
     return (
         <div className='bookings-main'>

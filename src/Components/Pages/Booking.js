@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import FlashMessage from 'react-flash-message';
 import './Booking.css';
 import OfficeService from '../../Services/office.service';
@@ -13,7 +13,7 @@ const Booking = () => {
         setSelectedDate({ selectedDay: day });
     }
 
-    let freeSpots = bookedUsers.numberOfFreeSpots || 0;
+    let freeSpots = bookedUsers.numberOfFreeSpots || 50;
     let totalSpots = 50 || bookedUsers.officeCapacity;
 
     const checkDate = async () => {
@@ -30,7 +30,7 @@ const Booking = () => {
     const bookOffice = async (e) => {
         e.preventDefault();
         await OfficeService.bookOfficeSpot(selectedDate.selectedDay.toLocaleDateString())
-            .then((response) => {
+            .then(() => {
                 console.log('OfficeDay booked');
                 setStatus(true);
             }, (error) => {
@@ -40,7 +40,7 @@ const Booking = () => {
 
     const Message = () => (
         <div className='booking-msg'>
-            <FlashMessage duration={3000}>
+            <FlashMessage duration={2000}>
                 <p className='booking-msg-p'> <span className='booking-msg-p-span'>
                     Successfully booked {selectedDate.selectedDay.toLocaleDateString()}
                 </span>
@@ -71,7 +71,7 @@ const Booking = () => {
                 </div>
                 <div className='usage-bar'>
                     <h5 className='office-books'>
-                        {freeSpots}/{totalSpots} desks are booked for this date
+                        {totalSpots - freeSpots}/{totalSpots} desks are booked for this date
                 </h5>
                 </div>
                 <button className='book-date-button' onClick={checkDate}>Check date</button>

@@ -1,4 +1,4 @@
-.canteen-main{
+.canteen-main {
     margin: 40px 0 40px 0;
     width: fit-content;
     /* background-color: #eed384; */
@@ -12,7 +12,9 @@
     height: 40px;
     width: 200px;
     font-weight: 600;
-    margin: 20px 10px 10px 45px;
+    /* margin: 20px 10px 1px 50px; */
+    margin: 10px;
+    padding-left: 15px;
 }
 .canteen-btn:hover { 
     background:  #df4b3b;
@@ -28,25 +30,34 @@
     background:  #c0392b;
     outline: 0 !important
 }
-.canteen-list-main{
+.canteen-list-main {
     width: 300px;
     height: 60px;
     border-radius: 5px;
     background-color: #eed384;
+    margin: auto;
 }
-.canteen-div{
+.canteen-div {
     color: #494740;
     font-weight: 700;
     align-items: center;
     justify-content: center;
     padding: 0;
 }
-.user-name{
+.user-name {
     padding: 10px;
     margin: 10px;
     font-size: larger;
 }
-.user-img{
+.user-img {
     padding: 5px;
     margin: 5px;
+}
+.fa-hotdog {
+    margin: 0 10px 0 10px;
+}
+.canteen-status {
+    margin: 5px 0 5px 0;
+    color: #c0392b;
+    font-size: 1.25rem;
 }
