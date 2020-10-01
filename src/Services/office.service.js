@@ -23,7 +23,7 @@ const checkOfficeUse = (date) => {
 
 const bookOfficeSpot = (date) => {
     return axios
-        .post("office/reserve", {
+        .post("/office/reserve", {
             date,
         }, {
             headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
