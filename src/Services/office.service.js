@@ -36,7 +36,7 @@ const bookOfficeSpot = (date) => {
 const getBookings = async () => {
     return await axios.get(API_URL + "/office/bookings",
         {
-            headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
+            headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
         }).then((response) => {
             return response.data
         });
