@@ -5,6 +5,7 @@ import Navbar from './Components/Shared/Navbar';
 import Login from './Components/Pages/Login';
 import Booking from './Components/Pages/Booking';
 import Bookings from './Components/Pages/Bookings';
+import Canteen from './Components/Pages/Canteen';
 
 function App() {
 
@@ -22,6 +23,10 @@ function App() {
           <Route exact path='/bookings'>
             <Navbar />
             <Bookings />
+          </Route>
+          <Route exact path='/canteen'>
+            <Navbar />
+            <Canteen />
           </Route>
         </Switch>
       </div>

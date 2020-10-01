@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FlashMessage from 'react-flash-message';
 import './Booking.css';
 import OfficeService from '../../Services/office.service';
@@ -18,7 +18,7 @@ const Booking = () => {
     let totalSpots = 50 || bookedUsers.officeCapacity;
 
     const checkDate = async () => {
-        await OfficeService.checkOfficeUse(convertDate(selectedDate.selectedDay.toLocaleDateString()))
+        await OfficeService.checkOfficeUse(selectedDate.selectedDay.toLocaleDateString())
             .then((response) => {
                 // console.log(response.usersInOffice)
                 setBookedUsers({ ...response })
@@ -32,7 +32,7 @@ const Booking = () => {
 
     const bookOffice = async (e) => {
         e.preventDefault();
-        await OfficeService.bookOfficeSpot(convertDate(selectedDate.selectedDay.toLocaleDateString()))
+        await OfficeService.bookOfficeSpot(selectedDate.selectedDay.toLocaleDateString())
             .then((response) => {
                 console.log('OfficeDay booked');
                 setStatus(true);

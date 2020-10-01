@@ -62,6 +62,7 @@ h4 {
 }
 .booking-msg-p{
     margin: 5px;
+    padding-top: 7px;
     color: #2e2d2a;
     font-weight: 700;
 }
@@ -70,7 +71,7 @@ h4 {
     padding: 5px;    
 }
 .booking-msg{
-    background-color:  #c0392b;
+    background-color: #c0392b;
     width: fit-content;
     height: 48px;
     margin: auto;

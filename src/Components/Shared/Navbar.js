@@ -11,6 +11,9 @@ const Navbar = ({ visibility }) => {
     function navigateToMyBookings() {
         history.push('/bookings')
     }
+    function navigateToCanteen() {
+        history.push('/canteen')
+    }
     function logoutUser() {
         history.push('/')
         localStorage.clear();
@@ -28,6 +31,9 @@ const Navbar = ({ visibility }) => {
                     </li>
                     <li className="nav-item">
                         <button className="nav-link" onClick={navigateToMyBookings}>My bookings</button>
+                    </li>
+                    <li className="nav-item">
+                        <button className="nav-link" onClick={navigateToCanteen}>Canteen</button>
                     </li>
                 </ul>
             </div>
