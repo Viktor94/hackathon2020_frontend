@@ -18,7 +18,7 @@ const Booking = () => {
     let totalSpots = 50 || bookedUsers.officeCapacity;
 
     const checkDate = async () => {
-        await OfficeService.checkOfficeUse(selectedDate.selectedDay.toLocaleDateString())
+        await OfficeService.checkOfficeUse(convertDate(selectedDate.selectedDay.toLocaleDateString()))
             .then((response) => {
                 // console.log(response.usersInOffice)
                 setBookedUsers({ ...response })
