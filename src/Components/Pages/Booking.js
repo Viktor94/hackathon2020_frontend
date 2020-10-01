@@ -21,7 +21,7 @@ const Booking = () => {
     let totalSpots = bookedUsers.officeCapacity;
 
     const checkDate = async () => {
-        await OfficeService.checkOfficeUse(convertDate(currentDay))
+        await OfficeService.checkOfficeUse(currentDay)
             .then((response) => {
                 // console.log(response.usersInOffice)
                 setBookedUsers({ ...response })
@@ -35,7 +35,7 @@ const Booking = () => {
 
     const bookOffice = async (e) => {
         e.preventDefault();
-        await OfficeService.bookOfficeSpot(convertDate(selectedDate.selectedDay.toLocaleDateString()))
+        await OfficeService.bookOfficeSpot(selectedDate.selectedDay.toLocaleDateString())
             .then((response) => {
                 console.log('OfficeDay booked');
                 setStatus(true);
@@ -58,11 +58,11 @@ const Booking = () => {
         </div>
     )
 
-    const convertDate = (date) => {
+    /*const convertDate = (date) => {
         let result = date.replace(/\s+/g, '');
         result = result.substring(8, 10) + '/' + result.substring(5, 7) + '/' + result.substring(0, 4);
         return result;
-    }
+    }*/
 
     return (
         <div>
