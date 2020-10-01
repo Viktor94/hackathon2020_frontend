@@ -28,7 +28,7 @@ const Bookings = () => {
         // };
         // fetchProduct();
         // return (() => { ignore = true; });
-        const getBookings = async () => {
+        /*const getBookings = async () => {
             return await axios.get("/office/bookings",
                 {
                     headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
@@ -36,7 +36,7 @@ const Bookings = () => {
                     setUsersBooking({ ...response });
                     return response
                 });
-        }
+        }*/
         getBookings()
     }, [userToken]);
 
@@ -45,6 +45,17 @@ const Bookings = () => {
             console.log(usersBooking)
             console.log(usersBooking.data)
         }
+    }
+
+    const getBookings = async () => {
+        return await axios.get("/office/bookings",
+            {
+                headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
+            }).then((response) => {
+                setUsersBooking({ ...response });
+                console.log(response)
+                return response
+            });
     }
 
     return (
@@ -65,7 +76,7 @@ const Bookings = () => {
                     </li>
                 })}
             </ul>
-            <button className='btn btn-primary' onClick={consoleLog}>Update</button>
+            <button className='btn btn-primary' onClick={getBookings}>Update</button>
         </div>
     )
 }
