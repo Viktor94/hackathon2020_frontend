@@ -32,7 +32,7 @@ const Booking = () => {
 
     const bookOffice = async (e) => {
         e.preventDefault();
-        await OfficeService.bookOfficeSpot(selectedDate.selectedDay.toLocaleDateString())
+        await OfficeService.bookOfficeSpot(convertDate(selectedDate.selectedDay.toLocaleDateString()))
             .then((response) => {
                 console.log('OfficeDay booked');
                 setStatus(true);
@@ -54,6 +54,12 @@ const Booking = () => {
             </FlashMessage>
         </div>
     )
+
+    const convertDate = (date) => {
+        let result = date.replace(/\s+/g, '');
+        result = result.substring(8, 10) + '/' + result.substring(5, 7) + '/' + result.substring(0, 4);
+        return result;
+    }
 
     return (
         <div>
