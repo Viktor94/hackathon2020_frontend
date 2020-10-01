@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-best-frontend.herokuapp.com";
+const API_URL = "https://cors-anywhere.herokuapp.com,https://hackathon-best-frontend.herokuapp.com";
 
 const login = (password, userName) => {
   return axios
