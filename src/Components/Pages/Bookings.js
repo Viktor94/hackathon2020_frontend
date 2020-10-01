@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Bookings.css';
 import axios from 'axios';
+const API_URL = "https://hackathon-back.herokuapp.com";
 
 const Bookings = () => {
 
@@ -12,7 +13,7 @@ const Bookings = () => {
     }, [userToken]);
 
     const getBookings = async () => {
-        return await axios.get("/office/bookings",
+        return await axios.get(API_URL + "/office/bookings",
             {
                 headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
             }).then((response) => {
@@ -23,7 +24,7 @@ const Bookings = () => {
     }
 
     const deleteBooking = async (date) => {
-        return await axios.post("/office/unreserve", {
+        return await axios.post(API_URL + "/office/unreserve", {
             date,
         }, {
             headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }

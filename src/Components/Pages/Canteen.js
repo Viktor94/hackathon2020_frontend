@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Canteen.css';
 import axios from 'axios';
-
+const API_URL = "https://hackathon-back.herokuapp.com";
 
 const Canteen = () => {
 
@@ -9,27 +9,29 @@ const Canteen = () => {
     const [canteenStatus, setCanteenStatus] = useState([])
 
     const getCanteen = async () => {
-        return await axios.get("/canteen/status",
+        return await axios.get(API_URL + "/canteen/status",
             {
                 headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
             }).then((response) => {
                 setCanteenStatus({ ...response });
-                console.log(response.data.usersInCanteen[0].userName)
+                // console.log(response.data.usersInCanteen[0].userName)
                 console.log(response)
                 return response
             });
     }
 
     const checkinToCanteen = async () => {
-        return await axios.post("/canteen/apply",
-            {
+        return axios
+            .post(API_URL + "/canteen/apply", {
+                
+            }, {
                 headers: { 'Authorization': 'Bearer ' + userToken.slice(1, -1) }
-            }).then((response) => {
+            })
+            .then((response) => {
                 getCanteen()
-                return response
-            });
+                return response;
+            })
     }
-
 
     useEffect(() => {
         getCanteen()
@@ -43,12 +45,12 @@ const Canteen = () => {
                     return <li className="list-group-item canteen-div" key={i}>
                         <p className='user-name'>{item.userName}</p>
                         <div className='user-img'>
-                        <img src={item.profileImageUrl} alt="Mountains" width="120" height="80"></img>
+                            <img src={item.profileImageUrl} alt="Mountains" width="120" height="80"></img>
 
                         </div>
                     </li>
                 })}
-            <button className='canteen-btn' onClick={checkinToCanteen}>Checkin to Canteen <i className='fas fa-hotdog'></i></button>
+                <button className='canteen-btn' onClick={checkinToCanteen}>Checkin to Canteen <i className='fas fa-hotdog'></i></button>
             </ul>
         </div>
     )

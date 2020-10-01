@@ -1,13 +1,13 @@
 import axios from "axios";
 import AuthService from "./user.service";
 
-// const API_URL = "https://hackathon-back.herokuapp.com";
+const API_URL = "https://hackathon-back.herokuapp.com";
 
 const user = AuthService.getCurrentUser();
 
 const checkOfficeUse = (date) => {
     return axios
-        .post("/office/check-date", {
+        .post(API_URL + "/office/check-date", {
             date,
         }, {
             headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
@@ -23,7 +23,7 @@ const checkOfficeUse = (date) => {
 
 const bookOfficeSpot = (date) => {
     return axios
-        .post("/office/reserve", {
+        .post(API_URL + "/office/reserve", {
             date,
         }, {
             headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
@@ -34,7 +34,7 @@ const bookOfficeSpot = (date) => {
 }
 
 const getBookings = async () => {
-    return await axios.get("/office/bookings",
+    return await axios.get(API_URL + "/office/bookings",
         {
             headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
         }).then((response) => {
