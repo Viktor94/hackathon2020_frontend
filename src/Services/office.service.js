@@ -13,7 +13,6 @@ const checkOfficeUse = (date) => {
             headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
         })
         .then((response) => {
-            console.log(response.data)
             if (response.data.date) {
                 localStorage.setItem('date', JSON.stringify(response.data.date));
             }

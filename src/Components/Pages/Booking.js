@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FlashMessage from 'react-flash-message';
 import './Booking.css';
 import OfficeService from '../../Services/office.service';
@@ -6,19 +6,22 @@ import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
 const Booking = () => {
-    const [selectedDate, setSelectedDate] = useState("");
+    const [selectedDate, setSelectedDate] = useState('');
     const [bookedUsers, setBookedUsers] = useState([]);
 
+    let currentDay;
+
     const handleSelectedDay = (day) => {
+        currentDay = day.toLocaleDateString();
         setSelectedDate({ selectedDay: day });
-        console.log(selectedDate.selectedDay);
+        checkDate()
     }
 
-    let freeSpots = bookedUsers.numberOfFreeSpots || 0;
-    let totalSpots = 50 || bookedUsers.officeCapacity;
+    let freeSpots = bookedUsers.numberOfFreeSpots;
+    let totalSpots = bookedUsers.officeCapacity;
 
     const checkDate = async () => {
-        await OfficeService.checkOfficeUse(selectedDate.selectedDay.toLocaleDateString())
+        await OfficeService.checkOfficeUse(convertDate(currentDay))
             .then((response) => {
                 // console.log(response.usersInOffice)
                 setBookedUsers({ ...response })
@@ -32,7 +35,7 @@ const Booking = () => {
 
     const bookOffice = async (e) => {
         e.preventDefault();
-        await OfficeService.bookOfficeSpot(selectedDate.selectedDay.toLocaleDateString())
+        await OfficeService.bookOfficeSpot(convertDate(selectedDate.selectedDay.toLocaleDateString()))
             .then((response) => {
                 console.log('OfficeDay booked');
                 setStatus(true);
@@ -54,6 +57,12 @@ const Booking = () => {
             </FlashMessage>
         </div>
     )
+
+    const convertDate = (date) => {
+        let result = date.replace(/\s+/g, '');
+        result = result.substring(8, 10) + '/' + result.substring(5, 7) + '/' + result.substring(0, 4);
+        return result;
+    }
 
     return (
         <div>
