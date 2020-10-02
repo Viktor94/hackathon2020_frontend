@@ -8,14 +8,17 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
-    "moment": "^2.29.0",
     "react": "^16.13.1",
     "react-day-picker": "^7.4.8",
     "react-dom": "^16.13.1",
     "react-flash-message": "^1.0.4",
     "react-history": "^0.18.2",
+    "react-keep-alive": "^2.5.2",
+    "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "valid-url": "^1.0.9",
+    "validatorjs": "^3.20.0"
   },
   "scripts": {
     "start": "react-scripts start",
