@@ -45,7 +45,7 @@
     padding: 0;
 }
 .user-name {
-    padding: 10px;
+    padding: 10px 0 10px 10px;
     margin: 10px;
     font-size: larger;
 }
@@ -60,4 +60,9 @@
     margin: 5px 0 5px 0;
     color: #c0392b;
     font-size: 1.25rem;
+}
+.counter-canteen {
+    color: #c0392b;
+    align-items: center;
+    justify-content: center;
 }

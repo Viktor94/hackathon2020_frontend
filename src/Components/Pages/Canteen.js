@@ -60,15 +60,17 @@ const Canteen = () => {
             <ul className="list-group canteen-list-main list-group-flush">
                 {canteenStatus.data && canteenStatus.data.usersInCanteen.map((item, i) => {
                     return <li className="list-group-item canteen-div" key={i}>
+                        <div className='counter-canteen'>
+                        <Countdown date={Date.now() + 1800000} />
+                        </div>
                         <p className='user-name'>{item.userName}</p>
                         <div className='user-img'>
                             <img src={item.profileImageUrl} alt="Mountains" width="120" height="80"></img>
-
                         </div>
                     </li>
                 })}
-
-            {/* <Countdown date={Date.now() + 10000} /> */}
+                <div className='counter-canteen'>
+                </div>
             </ul>
         </div>
     )
