@@ -5,7 +5,7 @@
     margin: auto;
 }
 .bookings-title{
-    margin: 10px 0 30px 0;
+    margin: 10px 0 8px 0;
 }
 .list-group{
     width: 300px;
@@ -53,4 +53,28 @@ li.list-group-item{
 .bi-trash{
     height: 25px;
     width: 25px;
+}
+.update-bookings-button {
+    border: 1px solid brown;
+    background:  #c0392b;
+    color: #2e2d2a;
+    border-radius: 5px;
+    height: 40px;
+    width: fit-content;
+    font-weight: 600;
+    margin: 10px 10px 30px 10px;
+}
+.update-bookings-button:hover { 
+    background:  #df4b3b;
+    outline: 0 !important
+}
+.update-bookings-button:active { 
+    background:  #c0392b;
+    outline: 0 !important;
+    transform: translateY(2px);
+    transition-timing-function: ease;
+}
+.update-bookings-button:focus { 
+    background:  #c0392b;
+    outline: 0 !important
 }

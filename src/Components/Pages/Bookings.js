@@ -41,6 +41,7 @@ const Bookings = () => {
     return (
         <div className='bookings-main'>
             <h4 className='bookings-title'>Manage my bookings</h4>
+                <button className='update-bookings-button' onClick={getBookings}>Update Bookings</button>
             <ul className="list-group list-group-flush">
                 {usersBooking.data && usersBooking.data.date.map((item, i) => {
                     return <li className="list-group-item" key={i}>

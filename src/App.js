@@ -1,6 +1,6 @@
 import React from 'react';
-import { Switch, Route } from "react-router-dom";
-import { KeepAlive } from 'react-keep-alive';
+import { HashRouter as Router, Route } from 'react-router-dom'
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
 import './App.css';
 import Navbar from './Components/Shared/Navbar';
 import Login from './Components/Pages/Login';
@@ -8,35 +8,27 @@ import Booking from './Components/Pages/Booking';
 import Bookings from './Components/Pages/Bookings';
 import Canteen from './Components/Pages/Canteen';
 
-
-
 function App() {
 
   return (
     <div className='App'>
-      <Switch>
+      <CacheSwitch>
         <Route exact path='/'>
           <Login />
         </Route>
-        <Route exact path='/home'>
+        <CacheRoute exact path='/home'>
           <Navbar />
-          <KeepAlive name='calendar'>
             <Booking />
-          </KeepAlive>
-        </Route>
-        <Route exact path='/bookings'>
+        </CacheRoute>
+        <CacheRoute exact path='/bookings' >
           <Navbar />
-          <KeepAlive name='bookings'>
             <Bookings />
-          </KeepAlive>
-        </Route>
-        <Route exact path='/canteen'>
+        </CacheRoute>
+        <CacheRoute exact path='/canteen'>
           <Navbar />
-          <KeepAlive name='canteen'>
             <Canteen />
-          </KeepAlive>
-        </Route>
-      </Switch>
+        </CacheRoute>
+      </CacheSwitch>
     </div>
   );
 }
