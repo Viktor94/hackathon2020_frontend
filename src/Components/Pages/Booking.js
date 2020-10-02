@@ -61,12 +61,6 @@ const Booking = () => {
         </div>
     )
 
-    const convertDate = (date) => {
-        let result = date.replace(/\s+/g, '');
-        result = result.substring(8, 10) + '/' + result.substring(5, 7) + '/' + result.substring(0, 4);
-        return result;
-    }
-
     return (
         <div>
             <div className='booking-container'>
