@@ -9,15 +9,19 @@ const Booking = () => {
     const [selectedDate, setSelectedDate] = useState("");
     const [bookedUsers, setBookedUsers] = useState([]);
 
+    let currentDay;
+
     const handleSelectedDay = (day) => {
+        currentDay = day.toLocaleDateString();
         setSelectedDate({ selectedDay: day });
+        checkDate();
     }
 
     let freeSpots = bookedUsers.numberOfFreeSpots || 50;
     let totalSpots = 50 || bookedUsers.officeCapacity;
 
     const checkDate = async () => {
-        await OfficeService.checkOfficeUse(selectedDate.selectedDay.toLocaleDateString())
+        await OfficeService.checkOfficeUse(convertDate(currentDay))
             .then((response) => {
                 setBookedUsers({ ...response })
             }, (error) => {
@@ -51,12 +55,6 @@ const Booking = () => {
             </FlashMessage>
         </div>
     )
-
-    const convertDate = (date) => {
-        let result = date.replace(/\s+/g, '');
-        result = result.substring(8, 10) + '/' + result.substring(5, 7) + '/' + result.substring(0, 4);
-        return result;
-    }
 
     return (
         <div>
