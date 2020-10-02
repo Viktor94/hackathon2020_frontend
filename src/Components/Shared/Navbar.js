@@ -41,7 +41,7 @@ const Navbar = ({ visibility }) => {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <button className="nav-link user-title">Welcome back {userName}</button>
+                        <button className="user-title">Welcome back {userName}</button>
                     </li>
                     <li className="nav-item">
                         <button className="nav-link logout-button" onClick={logoutUser}>

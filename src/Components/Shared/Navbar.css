@@ -42,4 +42,13 @@ h4 {
 .user-title {
     margin-right: 20px;
     font-style: italic;
+    border: none;
+    background: none;
+    padding: 8px;
 }
+.user-title:hover { 
+    outline: 0 !important;
+    border: none !important;
+}
+.user-title:active { outline: 0 !important }
+.user-title:focus { outline: 0 !important }
