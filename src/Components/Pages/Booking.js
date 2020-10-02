@@ -13,7 +13,7 @@ const Booking = () => {
         setSelectedDate({ selectedDay: day });
     }
 
-    let freeSpots = bookedUsers.numberOfFreeSpots || 50;
+    let freeSpots = bookedUsers.numberOfFreeSpots || 0;
     let totalSpots = 50 || bookedUsers.officeCapacity;
 
     const checkDate = async () => {
@@ -21,7 +21,6 @@ const Booking = () => {
             .then((response) => {
                 setBookedUsers({ ...response })
             }, (error) => {
-                setBookedUsers({ bookedUsers: 0 });
                 return error
             })
     };
@@ -72,7 +71,7 @@ const Booking = () => {
                 </div>
                 <div className='usage-bar'>
                     <h5 className='office-books'>
-                        {totalSpots - freeSpots}/{totalSpots} desks are booked for this date
+                        {-freeSpots}/{totalSpots} desks are booked for this date
                 </h5>
                 </div>
                 <button className='book-date-button' onClick={checkDate}>Check date</button>
