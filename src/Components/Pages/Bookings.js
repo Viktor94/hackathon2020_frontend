@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Bookings.css';
 import axios from 'axios';
 import officeService from '../../Services/office.service';
-const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-back.herokuapp.com/";
+const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-back.herokuapp.com";
 
 const Bookings = () => {
 

@@ -9,15 +9,20 @@ const Booking = () => {
     const [selectedDate, setSelectedDate] = useState("");
     const [bookedUsers, setBookedUsers] = useState([]);
 
+    let currentDay;
+
     const handleSelectedDay = (day) => {
+        currentDay = day.toLocaleDateString();
         setSelectedDate({ selectedDay: day });
+        checkDate(currentDay);
     }
 
-    let freeSpots = bookedUsers.numberOfFreeSpots || 50;
-    let totalSpots = 50 || bookedUsers.officeCapacity;
+    let freeSpots = bookedUsers.numberOfFreeSpots || 0;
+    let totalSpots = bookedUsers.officeCapacity || 0;
 
-    const checkDate = async () => {
-        await OfficeService.checkOfficeUse(selectedDate.selectedDay.toLocaleDateString())
+    const checkDate = async (day) => {
+        console.log(day)
+        await OfficeService.checkOfficeUse(day)
             .then((response) => {
                 setBookedUsers({ ...response })
             }, (error) => {
@@ -28,6 +33,9 @@ const Booking = () => {
     const [status, setStatus] = useState(false);
 
     const bookOffice = async (e) => {
+        if(selectedDate.selectedDay === undefined) {
+            return;
+        } else {
         e.preventDefault();
         await OfficeService.bookOfficeSpot(selectedDate.selectedDay.toLocaleDateString())
             .then(() => {
@@ -36,6 +44,7 @@ const Booking = () => {
             }, (error) => {
                 return error
             })
+        }
     }
 
     const Message = () => (
@@ -74,7 +83,14 @@ const Booking = () => {
                         {totalSpots - freeSpots}/{totalSpots} desks are booked for this date
                 </h5>
                 </div>
-                <button className='book-date-button' onClick={checkDate}>Check date</button>
+                <button className='book-date-button' onClick={() => {
+                    if(selectedDate.selectedDay === undefined) {
+                        console.log('Select a day')
+                    } else {
+                        checkDate(selectedDate.selectedDay.toLocaleDateString())
+                    }
+                }
+                }>Check date</button>
                 <button className='book-date-button' onClick={bookOffice}>Book this date</button>
             </div>
             {status && Message()}

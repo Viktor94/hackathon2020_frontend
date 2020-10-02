@@ -1,13 +1,13 @@
 import axios from "axios";
 import AuthService from "./user.service";
 
-// const API_URL = "https://hackathon-back.herokuapp.com";
+const API_URL = "https://hackathon-back.herokuapp.com";
 
 const user = AuthService.getCurrentUser();
 
 const canteenApply = () => {
     return axios
-        .post("/canteen/apply", 
+        .post(API_URL + "/canteen/apply", 
          {
             headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
         })
@@ -18,7 +18,7 @@ const canteenApply = () => {
 
 const canteenFinish = () => {
     return axios
-        .post("/canteen/finish", 
+        .post(API_URL + "/canteen/finish", 
          {
             headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
         })
@@ -29,7 +29,7 @@ const canteenFinish = () => {
 
 const canteenStatus = () => {
     return axios
-        .get("/canteen/status", 
+        .get(API_URL + "/canteen/status", 
          {
             headers: { 'Authorization': 'Bearer ' + user.token.slice(1, -1) }
         })
@@ -40,7 +40,7 @@ const canteenStatus = () => {
 
 const canteenConfigure = (maxCanteenCapacity, lunchtimeInMinute) => {
     return axios
-        .put("/canteen/configure", {
+        .put(API_URL + "/canteen/configure", {
             maxCanteenCapacity,
             lunchtimeInMinute
         }, {

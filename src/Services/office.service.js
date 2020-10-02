@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth.header";
 
-const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-back.herokuapp.com/";
+const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-back.herokuapp.com";
 
 const checkOfficeUse = (date) => {
     return axios
@@ -28,7 +28,7 @@ const bookOfficeSpot = (date) => {
 }
 
 const getBookings = async () => {
-    return await axios.get(API_URL + "/office/bookings",
+    return await axios.get( API_URL + "/office/bookings",
         { headers: authHeader() })
         .then((response) => {
             return response.data
