@@ -43,7 +43,7 @@ const Login = () => {
                     <div className="user_card">
                         <div className="d-flex justify-content-center">
                             <div className="brand_logo_container">
-                                <img src={require('../../img/chuckNorris.jpg')} className="brand_logo" alt="Logo"></img>
+                                <img src={require('../../img/chuckNorris.png')} className="brand_logo" alt="Logo"></img>
                             </div>
                         </div>
                         <div className="d-flex justify-content-center form_container">

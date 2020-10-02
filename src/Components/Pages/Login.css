@@ -1,7 +1,6 @@
 .login-main-container {
     height: 100%;
     margin-top: 50px;
-    /* background: #60a3bc !important; */
 }
 .login-title {
     margin-bottom: 110px;
@@ -13,7 +12,6 @@
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
-    /* background: #bccf5d; */
     background: #eed384;
     position: relative;
     display: flex;
@@ -31,7 +29,6 @@
     width: 170px;
     top: -75px;
     border-radius: 50%;
-    /* border: 1px solid red; */
     background: white;
     padding: 10px;
     text-align: center;
