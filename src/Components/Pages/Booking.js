@@ -21,6 +21,7 @@ const Booking = () => {
             .then((response) => {
                 setBookedUsers({ ...response })
             }, (error) => {
+                setBookedUsers({ bookedUsers: 0 });
                 return error
             })
     };

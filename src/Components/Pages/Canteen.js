@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Canteen.css';
 import axios from 'axios';
+import Countdown from 'react-countdown';
 const API_URL = "https://cors-anywhere.herokuapp.com/https://hackathon-back.herokuapp.com/";
 
 const Canteen = () => {
@@ -67,6 +68,7 @@ const Canteen = () => {
                     </li>
                 })}
 
+            {/* <Countdown date={Date.now() + 10000} /> */}
             </ul>
         </div>
     )
